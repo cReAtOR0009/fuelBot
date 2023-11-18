@@ -27,9 +27,24 @@ let currentDate = `${year}-${month}-${day}`;
 const url = `https://fuelo.net/prices/date/${currentDate}?lang=en`;
 console.log(currentDate);
 
+let browser;
+
+async function initializeBrowser() {
+  browser = await puppeteer.launch({ headless: true });
+  console.log("Browser initialized");
+}
+
+// initialize the browser when the server starts
+async function browserIsStart() {
+  if (!browser) {
+    await initializeBrowser();
+  }
+} 
+browserIsStart();
+
 app.get("/", async (req, res) => {
   try {
-    let browser = await puppeteer.launch({ headless: false });
+    // let browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.setUserAgent(
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
