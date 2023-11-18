@@ -20,6 +20,7 @@
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
+  "type": "module",
   "engines": {
     "node": ">=16.9"
   }
