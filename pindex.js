@@ -4,6 +4,7 @@ const PORT = 3000;
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const cors = require("cors");
+const stations = require("formattedCompanies.js")
 
 app.use(express.json());
 app.use(cookieParser());
@@ -97,6 +98,11 @@ app.get("/", async (req, res) => {
     console.error("Error during scraping:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
+});
+
+app.get("/formatdata_inProgress", async (req, res) => {
+  // let stations = stations;
+  res.send({ stations: stations });
 });
 
 app.listen(PORT, () => {
