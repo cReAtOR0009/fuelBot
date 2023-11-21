@@ -101,7 +101,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/formatdata_inProgress", async (req, res) => {
-  // let stations = stations;
+  let stations = stations.gasstations;
   res.send({ stations: stations });
 });
 
