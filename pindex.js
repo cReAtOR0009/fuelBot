@@ -4,7 +4,7 @@ const PORT = 3000;
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const cors = require("cors");
-const stations = require("formattedCompanies.js")
+const stations = require("./formattedCompanies.js")
 
 app.use(express.json());
 app.use(cookieParser());
